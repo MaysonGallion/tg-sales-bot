@@ -13,3 +13,17 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT NOW()      -- Дата и время создания записи
 );
 """
+
+CREATE_PRODUCTS_TABLE = """
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,                  -- Уникальный идентификатор продукта
+    name VARCHAR(255) NOT NULL,             -- Название продукта
+    description TEXT,                       -- Описание продукта
+    price NUMERIC(10, 2) NOT NULL,          -- Цена продукта
+    category VARCHAR(100),                  -- Категория продукта
+    photo_url TEXT,                         -- URL фотографии продукта
+    city VARCHAR(50) DEFAULT 'Wszystkie',   -- Город, в котором доступен продукт
+    active BOOLEAN DEFAULT TRUE,            -- Статус активности продукта
+    created_at TIMESTAMP DEFAULT NOW()      -- Дата и время создания записи
+);
+"""

@@ -2,7 +2,7 @@
 from aiogram import types, Router
 from aiogram.filters import CommandStart
 from database.crud import create_or_get_user
-from keyboards.default import main_menu_kb
+from keyboards.inline import main_menu_inline_kb
 from utils.logger import logger
 
 # Создаем роутер для обработки команды /start
@@ -22,7 +22,7 @@ async def start_handler(message: types.Message):
     )
 
     # Логируем информацию о пользователе
-    logger.info(f"Новый пользователь запустил бота: {user.id} - {user.full_name} ({user.username})")
+    logger.info(f"Nowy 👤 Użytkownik uruchomił bota: {user.id} - {user.full_name} ({user.username})")
 
     # Отправляем приветственное сообщение с кнопкой главного меню
     text = (
@@ -30,4 +30,4 @@ async def start_handler(message: types.Message):
         f"Witamy w naszym sklepie.\n"
         f"Wybierz opcję z menu poniżej 👇"
     )
-    await message.answer(text=text, reply_markup=main_menu_kb(), )
+    await message.answer(text=text, reply_markup=main_menu_inline_kb())
