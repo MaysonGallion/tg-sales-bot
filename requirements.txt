@@ -1,3 +1,3 @@
-aiogram==3.4.1  # Telegram-фреймворк с поддержкой async/await
+aiogram   # Telegram-фреймворк с поддержкой async/await
 asyncpg         # Асинхронный драйвер для PostgreSQL
 python-dotenv   # Для загрузки переменных окружения из .env

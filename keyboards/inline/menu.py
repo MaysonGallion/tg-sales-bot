@@ -1,3 +1,4 @@
+# tg_sales_bot/keyboards/inline/menu.py
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
@@ -7,10 +8,6 @@ def main_menu_inline_kb() -> InlineKeyboardMarkup:
             [InlineKeyboardButton(
                 text="🛒 Zakupy",
                 callback_data="menu_zakupy"
-            )],
-            [InlineKeyboardButton(
-                text="📦 Katalog",
-                callback_data="menu_katalog"
             )],
             [InlineKeyboardButton(
                 text="📖 Historia zamówień",

@@ -13,15 +13,28 @@ async def create_products_table():
 # Получение товаров по категории и городу (если задан город)
 async def get_products(category: str, city: str = None):
     async with db.pool.acquire() as conn:
-        if city and city.lower() != "wszystkie":
+        if city:
             query = """
                 SELECT * FROM products 
-                WHERE active = TRUE AND category = $1 AND city = $2
+                WHERE active = TRUE 
+                AND LOWER(category) = LOWER($1)
+                AND (city ILIKE $2 OR city = 'Wszystkie')
             """
             return await conn.fetch(query, category, city)
         else:
             query = """
                 SELECT * FROM products 
-                WHERE active = TRUE AND category = $1
+                WHERE active = TRUE 
+                AND LOWER(category) = LOWER($1)
             """
             return await conn.fetch(query, category)
+
+
+
+async def get_product_by_id(product_id: int):
+    async with db.pool.acquire() as conn:
+        query = """
+            SELECT * FROM products 
+            WHERE id = $1 AND active = TRUE
+        """
+        return await conn.fetchrow(query, product_id)
