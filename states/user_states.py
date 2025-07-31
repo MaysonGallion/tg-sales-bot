@@ -7,3 +7,7 @@ class OrderStates(StatesGroup):
     choosing_product = State()    # Wybór konkretnego produktu
     waiting_for_payment = State() # Инструкция и подтверждение BLIK
     entering_address = State()    # Ввод адреса
+
+class PaymentStates(StatesGroup):
+    waiting_for_cash_address = State() # Ожидание адреса для оплаты наличными
+    waiting_for_confirmation = State()  # Ожидание подтверждения оплаты

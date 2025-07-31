@@ -1,3 +1,4 @@
+# requirements.txt
 aiogram   # Telegram-фреймворк с поддержкой async/await
 asyncpg         # Асинхронный драйвер для PostgreSQL
 python-dotenv   # Для загрузки переменных окружения из .env

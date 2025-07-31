@@ -19,3 +19,27 @@ def category_selection_kb() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="🔙 Wróć", callback_data="menu_zakupy")],
         [InlineKeyboardButton(text="🏠 Menu główne", callback_data="to_main")],
     ])
+
+
+def product_card_kb() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="💳 Metoda płatności", callback_data="choose_payment")],
+        [InlineKeyboardButton(text="🔙 Wróć", callback_data="back_to_products")],
+        [InlineKeyboardButton(text="🏠 Menu główne", callback_data="to_main")]
+    ])
+
+
+def payment_method_kb() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="💵 Gotówka na miejscu", callback_data="pay_cash")],
+        [InlineKeyboardButton(text="📲 BLIK na numer", callback_data="pay_blik")],
+        [InlineKeyboardButton(text="🔙 Wróć", callback_data="back_to_products")],
+        [InlineKeyboardButton(text="🏠 Menu główne", callback_data="to_main")]
+    ])
+
+
+def blik_confirm_kb() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="✅ Opłacone, przejdź dalej", callback_data="blik_paid")],
+        [InlineKeyboardButton(text="🏠 Menu główne", callback_data="to_main")]
+    ])

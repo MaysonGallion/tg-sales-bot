@@ -1,3 +1,4 @@
+# handlers/user/start.py
 # Обработчик команды /start: регистрация пользователя и приветствие
 from aiogram import types, Router
 from aiogram.filters import CommandStart

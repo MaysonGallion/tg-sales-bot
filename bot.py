@@ -1,3 +1,4 @@
+# bot.py
 # Точка входа для запуска Telegram бота
 import asyncio
 from aiogram import Bot, Dispatcher
@@ -6,7 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 from config import BOT_TOKEN
 from database.db import init_db, close_db
 from database.crud import create_users_table, create_products_table
-from handlers.user import start_router, menu_router
+from handlers.user import start_router, menu_router, catalog_router, payment_router, navigation_router
 from utils.logger import logger
 
 
@@ -26,6 +27,9 @@ async def main():
     # Подключаем пользовательский роутер
     dp.include_router(start_router)
     dp.include_router(menu_router)
+    dp.include_router(catalog_router)
+    dp.include_router(payment_router)
+    dp.include_router(navigation_router)
 
     try:
         await dp.start_polling(bot)

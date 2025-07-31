@@ -1,3 +1,4 @@
+# utils/logger.py
 # Настройка логирования в файл bot.log и в консоль
 import logging
 
