@@ -1,17 +1,20 @@
-# handlers/user/start.py
-# Обработчик команды /start: регистрация пользователя и приветствие
+# tg-sales-bot/handlers/user/start.py
+# Обработчик команды /start: регистрация пользователя и приветствие + ЖЁСТКИЙ СБРОС FSM
 from aiogram import types, Router
 from aiogram.filters import CommandStart
+from aiogram.fsm.context import FSMContext
 from database.crud import create_or_get_user
 from keyboards.inline import main_menu_inline_kb
 from utils.logger import logger
 
-# Создаем роутер для обработки команды /start
 router = Router()
 
 
 @router.message(CommandStart())
-async def start_handler(message: types.Message):
+async def start_handler(message: types.Message, state: FSMContext):
+    # Полный сброс всех состояний — "рестарт" и для клиента, и для бота
+    await state.clear()
+
     user = message.from_user
 
     # Регистрация пользователя в базе данных

@@ -1,0 +1,1 @@
+# handlers/admin/delete_product.py
